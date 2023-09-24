@@ -37,6 +37,8 @@ const userAnswer2 = prompt (word2); //2
 alert(userAnswer2 === word2translation); 
 if (userAnswer2===word2translation) {correctAnswersCount=correctAnswersCount +1;}
 
-if (correctAnswersCount / wordsCount * 100 > correctAnswerMinPercent) {alert(finishseccessMessage)} else {alert(finishunseccessMessage)};
+const UserCorrectAnswerPercent = correctAnswersCount / wordsCount * 100
+
+if (UserCorrectAnswerPercent > correctAnswerMinPercent) {alert(finishseccessMessage)} else {alert(finishunseccessMessage)};
 
 </script>
