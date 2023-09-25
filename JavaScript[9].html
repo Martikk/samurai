@@ -10,11 +10,11 @@
     let balance = 100
     // --------------------------------------------------
     document.write('satrt', '<br>');
-    const product1Price = window.prompt('How much does product cost')
-    if (balance >= product1Price) {
-        document.write('Product purchased');
+    const productPrice = parseFloat(window.prompt('How much does product cost'))
+    if (balance >= productPrice) {
+        document.write('Product purchased', '<br>');
     } else {
-        document.write('Not enough money');
+        document.write('Not enough money', '<br>');
     }
     // if (balance < product1Price) {
     //     document.write('Not enough money');
@@ -22,4 +22,23 @@
     //     document.write('Product purchased');
     // }
     // document.write('<br>', 'END')
+
+    document.write('satrt', '<br>');
+    const product1Price = parseFloat(window.prompt('How much does product cost'))
+    if (balance >= product1Price) {
+        document.write('Product purchased', '<br>');
+    } else {
+        document.write('Not enough money', '<br>');
+    }
+
+    document.write('start', '<br>');
+    const product2Price = parseFloat(window.prompt('How much does product cost'));
+    if (balance >= product2Price) {
+        document.write('Product purchased', '<br>');
+    } else {
+        document.write('Not enough money', '<br>');
+    }
+    let TotalSpend = (productPrice + product1Price + product2Price);
+    let TotalBalance = (balance - TotalSpend);
+    document.write('Total Balance: ' + TotalBalance + '<br>');
 </script>
