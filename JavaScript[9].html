@@ -7,15 +7,20 @@
     <title>JavaScript Quiz</title>
 </head>
 <script>
-    let balance = 110
+    let balance = 200
     const product1Price = 110
-// --------------------------------------------------
+    // --------------------------------------------------
     document.write('satrt', '<br>');
 
-    if (balance >= product1Price) {
-        document.write('Product purchased');
-    } else {
+    // if (balance >= product1Price) {
+    //     document.write('Product purchased');
+    // } else {
+    //     document.write('Not enough money');
+    // }
+    if (balance < product1Price) {
         document.write('Not enough money');
+    } else {
+        document.write('Product purchased');
     }
     document.write('<br>', 'END')
 </script>
