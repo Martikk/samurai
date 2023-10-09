@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Quiz</title>
+</head>
+<script>
+    const words = [
+        { original: "wassup", translation: "Здарово" },
+        { original: "Bye", translation: "Покеда" },
+        { original: "Programmer", translation: "Программист" }
+    ];
+
+    const notificationMessages = {
+        start: {
+            hello: "Hello Man, it's your chance to learn English. Good Luck"
+        },
+        result: {
+            finishSuccess: "Молодец. Good Result",
+            finishUnsuccess: "Молодец. Но постарайся лучше"
+        }
+    };
+
+    alert(notificationMessages.start.hello);
+
+    const setting = { correctAnswerMinPercent: 50 };
+    let correctAnswersCount = 0;
+
+    for (let i = 0; i < words.length; i++) {
+        const userAnswer = prompt(words[i].original);
+        const isCorrect = userAnswer === words[i].translation;
+
+        alert(isCorrect);
+        
+        if (isCorrect) {
+            correctAnswersCount++;
+        }
+    }
+
+    const userCorrectAnswerPercent = (correctAnswersCount / words.length) * 100;
+
+    if (userCorrectAnswerPercent > setting.correctAnswerMinPercent) {
+        alert(notificationMessages.result.finishSuccess);
+    } else {
+        alert(notificationMessages.result.finishUnsuccess);
+    };
+</script>
+</html>
