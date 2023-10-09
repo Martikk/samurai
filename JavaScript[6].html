@@ -6,40 +6,44 @@
     <title>JavaScript Quiz</title>
 </head>
 <script>
-const word0 = "Wassup"
-const word1 = "Bye"
-const word2 = "Programmer"
+const word0 = {original:"wassup",
+translation:"Здарово"}
 
-const word0translation = "Здорово"
-const word1translation = "Покеда"
-const word2translation = "Программист"
+const word1 = {original:"Bye",
+translation:"Покеда"}
+
+const word2 = {original:"Programmer",
+translation:"Программист"}
 
 const wordsCount = 3;
 
-const finishseccessMessage = "Молодец. Good Result"
-const finishunseccessMessage = "Молодец. Но постарайся лучше"
+const notificationtmessages ={
+    start:{
+        hello:"Hello Man it your chance to learn English.Good Luck"},
+    result:{finishseccess:"Молодец. Good Result",
+finishunseccess:"Молодец. Но постарайся лучше"}}
 
-const correctAnswerMinPercent = 50
-
-let correctAnswersCount = 0;
+alert (notificationtmessages.start.hello)
+const setting = {correctAnswerMinPercent:50}
+const result ={correctAnswersCount:0}
 
 // ----------------
 
-const userAnswer0 = prompt (word0); //0
-alert(userAnswer0 === word0translation); 
-if (userAnswer0===word0translation) {correctAnswersCount=correctAnswersCount +1;}
+const userAnswer0 = prompt (word0.original); //0
+alert(userAnswer0 === word0.translation); 
+if (userAnswer0===word0.translation) {result.correctAnswersCount=result.correctAnswersCount +1;}
 
-const userAnswer1 = prompt (word1); //1
-alert(userAnswer1 === word1translation); 
-if (userAnswer1===word1translation) {correctAnswersCount=correctAnswersCount +1;}
+const userAnswer1 = prompt (word1.original); //1
+alert(userAnswer1 === word1.translation); 
+if (userAnswer1===word1.translation) {result.correctAnswersCount=result.correctAnswersCount +1;}
 
-const userAnswer2 = prompt (word2); //2
-alert(userAnswer2 === word2translation); 
-if (userAnswer2===word2translation) {correctAnswersCount=correctAnswersCount +1;}
+const userAnswer2 = prompt (word2.original); //2
+alert(userAnswer2 === word2.translation); 
+if (userAnswer2===word2.translation) {result.correctAnswersCount=result.correctAnswersCount +1;}
 
-const UserCorrectAnswerPercent = correctAnswersCount / wordsCount * 100
+const UserCorrectAnswerPercent = result.correctAnswersCount / wordsCount * 100
 
-if (UserCorrectAnswerPercent > correctAnswerMinPercent) {alert(finishseccessMessage)} 
-else {alert(finishunseccessMessage)};
+if (UserCorrectAnswerPercent > setting.correctAnswerMinPercent) {alert(notificationtmessages.result.finishseccess)} 
+else {alert(notificationtmessages.result.finishunseccess)};
 
 </script>
