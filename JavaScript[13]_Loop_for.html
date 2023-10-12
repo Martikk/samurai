@@ -13,11 +13,17 @@ let shoppinglists = [
     ['eat for cat','shampoo']
 ]
 
-for (let i = 0; i< shoppinglists.length; i++){let subarray = shoppinglists [i];
-for (let j = 0; j < subarray.length; j++){
+for (let i = 0; i< shoppinglists.length; i++){
+    let subarray = shoppinglists [i];
+
+    document.write('List','  ',i+1, '<br>'); 
+    document.write('------------------', '<br>'); 
+
+    for (let j = 0; j < subarray.length; j++){
     let product = subarray [j];
-document.write(product, '<br>'); 
+document.write(j + 1,'  -  ', product, '<br>'); 
 }
+document.write('<br>'); 
 }
 
     </script>
