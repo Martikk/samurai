@@ -23,24 +23,16 @@ const setting = {correctAnswerMinPercent:50}
 const result ={correctAnswersCount:0}
 
 // ----------------
-
-const userAnswer0 = prompt (words[0].original); //0
-alert(userAnswer0 === words[0].translation); 
-if (userAnswer0===words[0].translation) {result.correctAnswersCount=result.correctAnswersCount +1;}
-
-const userAnswer1 = prompt (words[1].original); //1
-alert(userAnswer1 === words[1].translation); 
-if (userAnswer1===words[1].translation) {result.correctAnswersCount=result.correctAnswersCount +1;}
-
-const userAnswer2 = prompt (words[2].original); //2
-alert(userAnswer2 === words[2].translation); 
-if (userAnswer2===words[2].translation) {result.correctAnswersCount=result.correctAnswersCount +1;}
+for ( let i=0;i<words.length;i++){
+    const userAnswer = prompt (words[i].original);
+alert(userAnswer === words[i].translation); 
+if (userAnswer===words[i].translation) 
+{result.correctAnswersCount=result.correctAnswersCount +1;
+}
+}
 
 const UserCorrectAnswerPercent = result.correctAnswersCount / words.length * 100
 
 if (UserCorrectAnswerPercent > setting.correctAnswerMinPercent) {alert(notificationtmessages.result.finishseccess)} 
 else {alert(notificationtmessages.result.finishunseccess)};
-
-const repeatCount = 100;
-    for (let index=1; index <= repeatcount; index++){document.write('a');}
 </script>
