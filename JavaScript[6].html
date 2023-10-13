@@ -6,6 +6,12 @@
     <title>JavaScript Quiz</title>
 </head>
 <script>
+    function showHelloMessage (_notificationtmessages) {
+        alert (notificationtmessages.start.hello)
+    }
+function getPercentage(_result,_vocabulary) {
+    return _result.correctAnswersCount / vocabulary._wordsCount * 100;
+}
     const vocabulary={
     words:{word0:{original:"wassup",
     translation:"Здарово"},
@@ -24,25 +30,26 @@ hello:"Hello Man it your chance to learn English.Good Luck"},
 result:{finishseccess:"Молодец. Good Result",
 finishunseccess:"Молодец. Но постарайся лучше"}}
 
-alert (notificationtmessages.start.hello)
+showHelloMessage(notificationtmessages);
+
 const setting = {correctAnswerMinPercent:50}
 const result ={correctAnswersCount:0}
 
 // ----------------
 
 const userAnswer0 = prompt (vocabulary.words.word0.original); //0
-alert(userAnswer0 === vocabulary.words.word0.translation); 
+alert(userAnswer0 === vocabulary.words.word0.translation);
 if (userAnswer0===vocabulary.words.word0.translation) {result.correctAnswersCount=result.correctAnswersCount +1;}
 
 const userAnswer1 = prompt (vocabulary.words.word1.original); //1
-alert(userAnswer1 === vocabulary.words.word1.translation); 
+alert(userAnswer1 === vocabulary.words.word1.translation);
 if (userAnswer1===vocabulary.words.word1.translation) {result.correctAnswersCount=result.correctAnswersCount +1;}
 
 const userAnswer2 = prompt (vocabulary.words.word2.original); //2
-alert(userAnswer2 === vocabulary.words.word2.translation); 
+alert(userAnswer2 === vocabulary.words.word2.translation);
 if (userAnswer2===vocabulary.words.word2.translation) {result.correctAnswersCount=result.correctAnswersCount +1;}
 
-const UserCorrectAnswerPercent = result.correctAnswersCount / vocabulary.wordsCount * 100
+const UserCorrectAnswerPercent = getPercentage(result,vocabulary);
 
 if (UserCorrectAnswerPercent > setting.correctAnswerMinPercent) {alert(notificationtmessages.result.finishseccess)} 
 else {alert(notificationtmessages.result.finishunseccess)};

@@ -1,42 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JavaScript Quiz</title>
 </head>
 <script>
-    const words =[{original:"wassup", translation:"Здарово"},
-    {original:"Bye",
-    translation:"Покеда"},
-    {original:"Programmer",
-    translation:"Программист"},
-    {original:"Screen",
-    translation:"Экран"}
-    
-]
+    function showHelloMessage(_notificationtmessages) {
+        alert(notificationtmessages.start.hello)
+    }
 
-const notificationtmessages ={
-start:{
-hello:"Hello Man it your chance to learn English.Good Luck"},
-result:{finishseccess:"Молодец. Good Result",
-finishunseccess:"Молодец. Но постарайся лучше"}}
+    function starttrenning(_words, _result) {
+        for (let i = 0; i < words.length; i++) {
+            const userAnswer = prompt(words[i].original);
+            alert(userAnswer === words[i].translation);
+            if (userAnswer === words[i].translation) {
+                result.correctAnswersCount = result.correctAnswersCount + 1;
+            }
+        }
+    }
 
-alert (notificationtmessages.start.hello)
-const setting = {correctAnswerMinPercent:50}
-const result ={correctAnswersCount:0}
+    function getPercentage(_words, _result) {
+        return _result.correctAnswersCount / words._wordsCount * 100;
+    }
 
-// ----------------
-for ( let i=0;i<words.length;i++){
-    const userAnswer = prompt (words[i].original);
-alert(userAnswer === words[i].translation); 
-if (userAnswer===words[i].translation) 
-{result.correctAnswersCount=result.correctAnswersCount +1;
-}
-}
+    function showresult(_result, _words, _setting, _notificationtmessages) {
+        const UserCorrectAnswerPercent = getPercentage(result, words);
 
-const UserCorrectAnswerPercent = result.correctAnswersCount / words.length * 100
+        if (UserCorrectAnswerPercent > setting.correctAnswerMinPercent) {
+            alert(notificationtmessages.result.finishseccess)
+        } else {
+            alert(notificationtmessages.result.finishunseccess)
+        };
+    }
+    const words = [{
+            original: "wassup",
+            translation: "Здарово"
+        },
+        {
+            original: "Bye",
+            translation: "Покеда"
+        },
+        {
+            original: "Programmer",
+            translation: "Программист"
+        },
+        {
+            original: "Screen",
+            translation: "Экран"
+        }
 
-if (UserCorrectAnswerPercent > setting.correctAnswerMinPercent) {alert(notificationtmessages.result.finishseccess)} 
-else {alert(notificationtmessages.result.finishunseccess)};
+    ]
+    const notificationtmessages = {
+        start: {
+            hello: "Hello Man it your chance to learn English.Good Luck"
+        },
+        result: {
+            finishseccess: "Молодец. Good Result",
+            finishunseccess: "Молодец. Но постарайся лучше"
+        }
+    }
+    const setting = {
+        correctAnswerMinPercent: 50
+    }
+    const result = {
+        correctAnswersCount: 0
+    }
+    showHelloMessage(notificationtmessages);
+    starttrenning(words, result);
+    showresult(result, words, setting, notificationtmessages);
 </script>
